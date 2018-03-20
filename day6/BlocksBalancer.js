@@ -55,7 +55,7 @@ Array.prototype.containsArray = function (array) {
 Array.prototype.equals = function (another) {
     if (this === another)
         return true;
-    if (another == null || !another instanceof Array || this.length != another.length)
+    if (!another instanceof Array || this.length != another.length)
         return false;
 
     for (var i = 0; i < this.length; ++i) {
