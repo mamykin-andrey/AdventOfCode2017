@@ -31,14 +31,12 @@ function calculateNewBlockSize(maxBlocksSize, banksCount) {
 function makeSpreadRound(banks, maxBanksPos, blocksToSpread, newBlockSize) {
     banks[maxBanksPos] -= blocksToSpread;
 
-    var i = maxBanksPos + 1;
-    while (blocksToSpread > 0 && i < banks.length) {
+    for (var i = maxBanksPos + 1; i < banks.length && blocksToSpread > 0; i++) {
         banks[i] += newBlockSize;
         blocksToSpread -= newBlockSize;
         i++;
     }
-    i = 0;
-    while (blocksToSpread > 0) {
+    for (var i = 0; blocksToSpread > 0; i++) {
         banks[i] += newBlockSize;
         blocksToSpread -= newBlockSize;
         i++;
